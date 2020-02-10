@@ -42,13 +42,13 @@ func main() {
 		// Extract the command from the Message.
 		switch update.Message.Command() {
 		case "help":
-			msg.Text = "type /sayhi or /status."
-		case "bok":
-			msg.Text = "kel başa şimşir tarak"
+			msg.Text = "type /news or cry."
+		//case "bok":
+		//	msg.Text = "kel başa şimşir tarak"
 		case "news":
-			msg.Text = feed.Items[1].Title + "\n" + feed.Items[1].Link
+			msg.Text = feed.Items[0].Title + "\n\n" + feed.Items[0].Link +  feed.Items[1].Title + "\n\n" + feed.Items[1].Link +  feed.Items[2].Title + "\n\n" + feed.Items[2].Link
 		default:
-			msg.Text = "I don't know that command"
+			log.Printf("dalyarak")
 		}
 
 		if _, err := bot.Send(msg); err != nil {
